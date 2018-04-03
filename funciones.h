@@ -3,6 +3,12 @@
 #define MAXINT 32767
 #define MININT -32768
 
+/**
+*\brief Recibe primerNumero y segundoNumero, y los suma
+*\param La suma de los dos numeros
+*\return -1 error OverFlow, 0 el resultado
+*
+*/
 int suma(int primerNumero, int segundoNumero, int *resultado)
 {
    int solucion;
@@ -21,6 +27,12 @@ int suma(int primerNumero, int segundoNumero, int *resultado)
    return respuesta;
 }
 
+/**
+*\brief Recibe primerNumero y segundoNumero, y los resta
+*\param La resta de los dos numeros
+*\return -1 error OverFlow, 0 el resultado
+*
+*/
 int resta(int primerNumero, int segundoNumero, int *resultado)
 {
    int solucion;
@@ -39,6 +51,12 @@ int resta(int primerNumero, int segundoNumero, int *resultado)
    return respuesta;
 }
 
+/**
+*\brief Recibe primerNumero y segundoNumero, y los divide
+*\param La divicion de los dos numeros
+*\return -2 si el dividendo es 0, -1 error OverFlow, 0 el resultado
+*
+*/
 int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
 {
    float solucion;
@@ -64,6 +82,12 @@ int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
    return respuesta;
 }
 
+/**
+*\brief Recibe primerNumero y segundoNumero, y los multiplica
+*\param La multiplicacion de los dos numeros
+*\return -1 error OverFlow, 0 el resultado
+*
+*/
 int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
 {
    int solucion;
@@ -82,6 +106,12 @@ int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
    return respuesta;
 }
 
+/**
+*\brief Recibe primerNumero y lo factoriza
+*\param La factorizacion del numero
+*\return -2 error de numero no valido(si es menor a 1), -1 error OverFlow, 0 el resultado
+*
+*/
 int factorial(int primerNumero, int *resultado)
 {
     int solucion = 1;
