@@ -108,7 +108,65 @@ int main()
                 }
             break;
             case 8:
-
+                respuesta = suma(primerNumero, segundoNumero, &resultado);
+                if(respuesta == -1)
+                {
+                    printf("Error de OverFlow\n");
+                }
+                else
+                {
+                    printf("La suma es %d\n", resultado);
+                }
+                respuesta = resta(primerNumero, segundoNumero, &resultado);
+                if(respuesta == -1)
+                {
+                    printf("Error de OverFlow\n");
+                }
+                else
+                {
+                    printf("La resta es %d\n", resultado);
+                }
+                respuesta = dividir(primerNumero, segundoNumero, &resultadoDivi);
+                if(respuesta == -2)
+                {
+                    printf("No se puede dividir por cero(0)\n");
+                }
+                else
+                {
+                    if(respuesta == -1)
+                    {
+                        printf("Error de OverFlow\n");
+                    }
+                    else
+                    {
+                        printf("La divicion es %.2f\n", resultadoDivi);
+                    }
+                }
+                respuesta = multiplicacion(primerNumero, segundoNumero, &resultado);
+                if(respuesta == -1)
+                {
+                    printf("Error de OverFlow\n");
+                }
+                else
+                {
+                    printf("La multiplicacion es %d\n", resultado);
+                }
+                respuesta = factorial(primerNumero, &resultado);
+                if(respuesta == -2)
+                {
+                    printf("No se puede calcular el factorial de un numero menor a 1 \n");
+                }
+                else
+                {
+                    if(respuesta == -1)
+                    {
+                        printf("Error de OverFlow \n");
+                    }
+                    else
+                    {
+                        printf("El factorial es %d\n", resultado);
+                    }
+                }
             break;
             case 9:
                 seguir = 'n';
