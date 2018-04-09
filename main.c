@@ -170,7 +170,10 @@ int main()
             break;
             case 9:
                 seguir = 'n';
-                break;
+            break;
+            default :
+                printf("Opcion no valida");
+            break;
         }
 
     }
