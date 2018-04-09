@@ -4,8 +4,10 @@
 #define MININT -32768
 
 /**
-*\brief Recibe primerNumero y segundoNumero, y los suma
-*\param La suma de los dos numeros
+*\brief Suma dos numeros enteros
+*\param int primerNumero, primer numero a ser sumado
+*\param int segundoNumero, segundo numero a ser sumado
+*\param int *resultado, donde se guarda el valor de la suma
 *\return -1 error OverFlow, 0 el resultado
 *
 */
@@ -28,8 +30,10 @@ int suma(int primerNumero, int segundoNumero, int *resultado)
 }
 
 /**
-*\brief Recibe primerNumero y segundoNumero, y los resta
-*\param La resta de los dos numeros
+*\brief Resta dos numeros enteros
+*\param int primerNumero, numero a restar
+*\param int segundoNumero, cantidad a restar
+*\param int *resultado, donde se guarda el valor de la resta
 *\return -1 error OverFlow, 0 el resultado
 *
 */
@@ -52,9 +56,11 @@ int resta(int primerNumero, int segundoNumero, int *resultado)
 }
 
 /**
-*\brief Recibe primerNumero y segundoNumero, y los divide
-*\param La divicion de los dos numeros
-*\return -2 si el dividendo es 0, -1 error OverFlow, 0 el resultado
+*\brief Divide dos numeros enteros
+*\param int primerNumero, dividendo
+*\param int segundoNumero, divisor
+*\param int *resultado, donde se guarda el valor de la divicion
+*\return -2 el divisor es 0, -1 error OverFlow, 0 el resultado
 *
 */
 int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
@@ -83,8 +89,10 @@ int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
 }
 
 /**
-*\brief Recibe primerNumero y segundoNumero, y los multiplica
-*\param La multiplicacion de los dos numeros
+*\brief Multiplica dos numeros enteros
+*\param int primerNumero, multiplicado
+*\param int segundoNumero, multiplicador
+*\param int *resultado, donde se guarda el valor de la multiplicacion
 *\return -1 error OverFlow, 0 el resultado
 *
 */
@@ -107,9 +115,10 @@ int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
 }
 
 /**
-*\brief Recibe primerNumero y lo factoriza
-*\param La factorizacion del numero
-*\return -2 error de numero no valido(si es menor a 1), -1 error OverFlow, 0 el resultado
+*\brief Factorea un numero entero
+*\param int primerNumero, numero a ser factoreado
+*\param int *resultado, donde se guarda el valor de la factorizacion
+*\return -2 error el numero no puede ser menor a 1, -1 error OverFlow, 0 el resultado
 *
 */
 int factorial(int primerNumero, int *resultado)
