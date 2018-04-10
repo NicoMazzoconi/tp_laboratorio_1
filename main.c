@@ -29,14 +29,24 @@ int main()
         switch(opcion)
         {
             case 1:
-                printf("Ingrese el primer numero\n");
-                scanf("%d", &primerNumero);
-                fflush(stdin);
+                if(getInt("Ingrese un numero entero\n", "Fuera de rango del int(-32768/32767)\n", 2, &resultado)==0)
+                {
+                    primerNumero = resultado;
+                }
+                else
+                {
+                    printf("Se agotaron los intentos\n");
+                }
             break;
             case 2:
-                printf("Ingrese el segundo numero\n");
-                scanf("%d", &segundoNumero);
-                fflush(stdin);
+                if(getInt("Ingrese un numero entero\n", "Fuera de rango del int(-32768/32767)\n", 2, &resultado)==0)
+                {
+                    segundoNumero = resultado;
+                }
+                else
+                {
+                    printf("Se agotaron los intentos\n");
+                }
             break;
             case 3:
                 respuesta = suma(primerNumero, segundoNumero, &resultado);

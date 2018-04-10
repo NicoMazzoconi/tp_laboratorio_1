@@ -3,6 +3,41 @@
 #define MAXINT 32767
 #define MININT -32768
 
+/** \brief Pide un numero entero
+ *
+ * \param int * mensaje texto que muestra al pedir el numero
+ * \param int *error error que muestra al ingresar opcion no valida
+ * \param int intentos cantidad de veces que puede intentarlo
+ * \param int* resultado valor ingresado valido
+ * \return int -1 se acabaron los intentos, 0 todo perfecto
+ *
+ */
+int getInt(int *mensaje, int *error, int intentos, int *resultado)
+{
+    int retorno;
+    int aux;
+    int i = 0;
+    do
+    {
+        printf("%s", mensaje);
+        scanf("%d", &aux);
+        fflush(stdin);
+        if(aux > (MININT - 1) && aux < (MAXINT + 1))
+        {
+            retorno = 0;
+            *resultado = aux;
+            break;
+        }
+        else
+        {
+            retorno = -1;
+            printf("%s", error);
+        }
+        i++;
+    }while(i < intentos);
+
+    return retorno;
+}
 /**
 *\brief Suma dos numeros enteros
 *\param int primerNumero, primer numero a ser sumado
@@ -123,7 +158,7 @@ int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
 */
 int factorial(int primerNumero, int *resultado)
 {
-    int solucion = 1;
+    long solucion = 1;
     int respuesta;
     int i;
 
@@ -139,6 +174,7 @@ int factorial(int primerNumero, int *resultado)
             if(solucion < MININT || solucion > MAXINT)
             {
                 respuesta = -1;
+                break;
             }
             else
             {
@@ -147,6 +183,8 @@ int factorial(int primerNumero, int *resultado)
             }
         }
     }
+
+    return respuesta;
 }
 #endif // FUNCIONES_H_INCLUDED
 
