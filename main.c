@@ -50,139 +50,41 @@ int main()
             break;
             case 3:
                 respuesta = suma(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La suma es %d\n", resultado);
-                }
+                mostrar("La suma es:", respuesta, resultado, 0);
             break;
             case 4:
                 respuesta = resta(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La resta es %d\n", resultado);
-                }
+                mostrar("La resta es:", respuesta, resultado, 0);
             break;
             case 5:
                 respuesta = dividir(primerNumero, segundoNumero, &resultadoDivi);
-                if(respuesta == -2)
-                {
-                    printf("No se puede dividir por cero(0)\n");
-                }
-                else
-                {
-                    if(respuesta == -1)
-                    {
-                        printf("Error de OverFlow\n");
-                    }
-                    else
-                    {
-                        printf("La divicion es %.2f\n", resultadoDivi);
-                    }
-                }
+                mostrar("La divicion es:", respuesta, 0, resultadoDivi);
             break;
             case 6:
                 respuesta = multiplicacion(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La multiplicacion es %d\n", resultado);
-                }
+                mostrar("La multiplicacion es:", respuesta, resultado, 0);
             break;
             case 7:
                 respuesta = factorial(primerNumero, &resultado);
-                if(respuesta == -2)
-                {
-                    printf("No se puede calcular el factorial de un numero menor a 1 \n");
-                }
-                else
-                {
-                    if(respuesta == -1)
-                    {
-                        printf("Error de OverFlow \n");
-                    }
-                    else
-                    {
-                        printf("El factorial es %d\n", resultado);
-                    }
-                }
+                mostrar("La factorizacion es:", respuesta, resultado, 0);
             break;
             case 8:
                 respuesta = suma(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La suma es %d\n", resultado);
-                }
+                mostrar("La suma es:", respuesta, resultado, 0);
                 respuesta = resta(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La resta es %d\n", resultado);
-                }
+                mostrar("La resta es:", respuesta, resultado, 0);
                 respuesta = dividir(primerNumero, segundoNumero, &resultadoDivi);
-                if(respuesta == -2)
-                {
-                    printf("No se puede dividir por cero(0)\n");
-                }
-                else
-                {
-                    if(respuesta == -1)
-                    {
-                        printf("Error de OverFlow\n");
-                    }
-                    else
-                    {
-                        printf("La divicion es %.2f\n", resultadoDivi);
-                    }
-                }
+                mostrar("La divicion es:", respuesta, 0, resultadoDivi);
                 respuesta = multiplicacion(primerNumero, segundoNumero, &resultado);
-                if(respuesta == -1)
-                {
-                    printf("Error de OverFlow\n");
-                }
-                else
-                {
-                    printf("La multiplicacion es %d\n", resultado);
-                }
+                mostrar("La multiplicacion es:", respuesta, resultado, 0);
                 respuesta = factorial(primerNumero, &resultado);
-                if(respuesta == -2)
-                {
-                    printf("No se puede calcular el factorial de un numero menor a 1 \n");
-                }
-                else
-                {
-                    if(respuesta == -1)
-                    {
-                        printf("Error de OverFlow \n");
-                    }
-                    else
-                    {
-                        printf("El factorial es %d\n", resultado);
-                    }
-                }
+                mostrar("La factorizacion es:", respuesta, resultado, 0);
             break;
             case 9:
                 seguir = 'n';
             break;
             default :
-                printf("Opcion no valida");
+                printf("Opcion no valida\n");
             break;
         }
 

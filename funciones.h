@@ -3,13 +3,38 @@
 #define MAXINT 32767
 #define MININT -32768
 
+
+void mostrar(int *mensaje, int respuesta, int resultado, float resultadoDivi)
+{
+    switch(respuesta)
+    {
+    case 1  :
+        printf("%s %.2f\n", mensaje, resultadoDivi);
+    break;
+    case 0  :
+        printf("%s %d\n", mensaje, resultado);
+    break;
+    case -1 :
+        printf("Se agotaron los intentos\n");
+    break;
+    case -2 :
+        printf("Error de overflow(desde -32768 hasta 32767)\n");
+    break;
+    case -3 :
+        printf("No se puede dividir por 0\n");
+    break;
+    case -4 :
+        printf("No se puede factorizar numero menores a 1\n");
+    break;
+    }
+}
 /** \brief Pide un numero entero
  *
  * \param int * mensaje texto que muestra al pedir el numero
  * \param int *error error que muestra al ingresar opcion no valida
  * \param int intentos cantidad de veces que puede intentarlo
  * \param int* resultado valor ingresado valido
- * \return int -1 se acabaron los intentos, 0 todo perfecto
+ * \return int -1 se acabaron los intentos, 2 todo perfecto
  *
  */
 int getInt(int *mensaje, int *error, int intentos, int *resultado)
@@ -43,7 +68,7 @@ int getInt(int *mensaje, int *error, int intentos, int *resultado)
 *\param int primerNumero, primer numero a ser sumado
 *\param int segundoNumero, segundo numero a ser sumado
 *\param int *resultado, donde se guarda el valor de la suma
-*\return -1 error OverFlow, 0 el resultado
+*\return -2 error OverFlow, 0 el resultado
 *
 */
 int suma(int primerNumero, int segundoNumero, int *resultado)
@@ -54,7 +79,7 @@ int suma(int primerNumero, int segundoNumero, int *resultado)
 
    if(solucion < MININT || solucion > MAXINT)
    {
-       respuesta = -1;
+       respuesta = -2;
    }
    else
    {
@@ -69,7 +94,7 @@ int suma(int primerNumero, int segundoNumero, int *resultado)
 *\param int primerNumero, numero a restar
 *\param int segundoNumero, cantidad a restar
 *\param int *resultado, donde se guarda el valor de la resta
-*\return -1 error OverFlow, 0 el resultado
+*\return -2 error OverFlow, 0 el resultado
 *
 */
 int resta(int primerNumero, int segundoNumero, int *resultado)
@@ -80,7 +105,7 @@ int resta(int primerNumero, int segundoNumero, int *resultado)
 
    if(solucion < MININT || solucion > MAXINT)
    {
-       respuesta = -1;
+       respuesta = -2;
    }
    else
    {
@@ -95,7 +120,7 @@ int resta(int primerNumero, int segundoNumero, int *resultado)
 *\param int primerNumero, dividendo
 *\param int segundoNumero, divisor
 *\param int *resultado, donde se guarda el valor de la divicion
-*\return -2 el divisor es 0, -1 error OverFlow, 0 el resultado
+*\return -1 el divisor es 0, -2 error OverFlow, 0 el resultado
 *
 */
 int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
@@ -105,18 +130,18 @@ int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
 
    if(segundoNumero == 0)
    {
-       respuesta = -2;
+       respuesta = -3;
    }
    else
    {
         solucion = (float)primerNumero / segundoNumero;
         if(solucion < MININT || solucion > MAXINT)
         {
-            respuesta = -1;
+            respuesta = -2;
         }
         else
         {
-            respuesta = 0;
+            respuesta = 1;
             *resultadoDivi = solucion;
         }
     }
@@ -128,7 +153,7 @@ int dividir(int primerNumero, int segundoNumero, float *resultadoDivi)
 *\param int primerNumero, multiplicado
 *\param int segundoNumero, multiplicador
 *\param int *resultado, donde se guarda el valor de la multiplicacion
-*\return -1 error OverFlow, 0 el resultado
+*\return -2 error OverFlow, 0 el resultado
 *
 */
 int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
@@ -139,7 +164,7 @@ int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
 
    if(solucion < MININT || solucion > MAXINT)
    {
-       respuesta = -1;
+       respuesta = -2;
    }
    else
    {
@@ -153,7 +178,7 @@ int multiplicacion(int primerNumero, int segundoNumero, int *resultado)
 *\brief Factorea un numero entero
 *\param int primerNumero, numero a ser factoreado
 *\param int *resultado, donde se guarda el valor de la factorizacion
-*\return -2 error el numero no puede ser menor a 1, -1 error OverFlow, 0 el resultado
+*\return -3 error el numero no puede ser menor a 1, -2 error OverFlow, 0 el resultado
 *
 */
 int factorial(int primerNumero, int *resultado)
@@ -164,7 +189,7 @@ int factorial(int primerNumero, int *resultado)
 
     if(primerNumero < 1)
     {
-        respuesta = -2;
+        respuesta = -4;
     }
     else
     {
@@ -173,7 +198,7 @@ int factorial(int primerNumero, int *resultado)
             solucion = i * solucion;
             if(solucion < MININT || solucion > MAXINT)
             {
-                respuesta = -1;
+                respuesta = -2;
                 break;
             }
             else
