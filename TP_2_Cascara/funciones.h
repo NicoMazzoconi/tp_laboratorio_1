@@ -12,7 +12,15 @@ typedef struct {
 
 }EPersona;
 
-int graficoEdades(EPersona *lista, int QTY);
+/** \brief Muestra un grafico de edades
+ *
+ * \param lista el array se pasa como parametro.
+ * \param int sizeArray  tamaño de la array
+ * \return void
+ *
+ */
+void graficoEdades(EPersona *lista, int QTY);
+
 /** \brief Inicializa la variable estado
  *
  * \param lista el array se pasa como parametro.
@@ -22,8 +30,7 @@ int graficoEdades(EPersona *lista, int QTY);
  */
 int personaInit(EPersona lista[], int sizeArray);
 
-/**
- * Obtiene el primer indice libre del array.
+/** \brief Obtiene el primer indice libre del array.
  *
  * \param lista el array se pasa como parametro.
  * \param int sizeArray  tamaño de la array
@@ -32,13 +39,13 @@ int personaInit(EPersona lista[], int sizeArray);
  */
 int obtenerEspacioLibre(EPersona lista[], int sizeArray);
 
-/**
- * Obtiene el indice que coincide con el dni pasado por parametro.
- * @param lista el array se pasa como parametro.
- * @param dni el dni a ser buscado en el array.
- * @return el indice en donde se encuentra el elemento que coincide con el parametro dni
+/** \brief Obtiene el indice que coincide con el id pasado por parametro.
+ *
+ * @param EPersona lista el array se pasa como parametro.
+ * @param int id el id a ser buscado en el array.
+ * @return el indice en donde se encuentra el elemento que coincide con el parametro id
  */
-int buscarPorDni(EPersona lista[], int dni, int sizeArray);
+int buscarPorID(EPersona lista[], int id, int sizeArray);
 
 /** \brief Da de alta una persona
  *
@@ -53,13 +60,13 @@ int personaAlta(EPersona lista[], int sizeArray);
  *
  * \param EPersona lista[] el array se pasa como parametro.
  * \param int sizeArray tamaño de la array
- * \param int dni DNI de la persona a dar de baja
+ * \param int id id de la persona a dar de baja
  * \return int
  *
  */
-int personaBaja(EPersona lista[], int sizeArray, int dni);
+int personaBaja(EPersona lista[], int sizeArray, int id);
 
-/** \brief
+/** \brief Muestra todos las personas de alta
  *
  * \param lista[] EPersona
  * \param sizeArray int
@@ -68,6 +75,14 @@ int personaBaja(EPersona lista[], int sizeArray, int dni);
  */
 int mostrarPersonas(EPersona lista[], int sizeArray);
 
+/** \brief Ordena las personas por nombre
+ *
+ * \param EPersona lista[] el array se pasa como parametro.
+ * \param int sizeArray tamaño de la array
+ * \param int orden Indica el orden con 1 / 0
+ * \return int
+ *
+ */
 int ordenarPorNombre(EPersona lista[], int sizeArray, int orden);
 
 #endif // FUNCIONES_H_INCLUDED

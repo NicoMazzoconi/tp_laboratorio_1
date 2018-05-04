@@ -8,16 +8,16 @@
 
 1525459794 c:\users\nico\desktop\tp_2_cascara\utn.h
 
-1525468515 source:c:\users\nico\desktop\tp_2_cascara\funciones.c
+1525472887 source:c:\users\nico\desktop\tp_2_cascara\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 	"utn.h"
 	<string.h>
 
-1525467025 c:\users\nico\desktop\tp_2_cascara\funciones.h
+1525473366 c:\users\nico\desktop\tp_2_cascara\funciones.h
 
-1525466751 source:c:\users\nico\desktop\tp_2_cascara\main.c
+1525468780 source:c:\users\nico\desktop\tp_2_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"

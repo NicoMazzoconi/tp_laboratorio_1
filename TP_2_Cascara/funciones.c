@@ -9,7 +9,7 @@ static int siguienteID();
 /** \brief Inicializa la variable estado
  *
  * \param lista el array se pasa como parametro.
- * \param int sizeArray  tamaÃ±o de la array
+ * \param int sizeArray  tamaño de la array
  * \return int
  *
  */
@@ -57,7 +57,7 @@ int obtenerEspacioLibre(EPersona lista[], int sizeArray)
  * @param dni el dni a ser buscado en el array.
  * @return el indice en donde se encuentra el elemento que coincide con el parametro dni, -1 error
  */
-int buscarPorDni(EPersona lista[], int dni, int sizeArray)
+int buscarPorID(EPersona lista[], int id, int sizeArray)
 {
     int retorno = -1;
     int i;
@@ -66,7 +66,7 @@ int buscarPorDni(EPersona lista[], int dni, int sizeArray)
         retorno = -2;
         for(i=0;i<sizeArray;i++)
         {
-            if(lista[i].isEmpty == 0 && lista[i].dni == dni)
+            if(lista[i].isEmpty == 0 && (lista[i].idEPersona == id))
             {
                 retorno = i;
                 break;
@@ -79,7 +79,7 @@ int buscarPorDni(EPersona lista[], int dni, int sizeArray)
 /** \brief Da de alta una persona
  *
  * \param EPersona lista[] el array se pasa como parametro.
- * \param int sizeArray  tamaÃ±o de la array
+ * \param int sizeArray  tamaño de la array
  * \return int
  *
  */
@@ -127,16 +127,16 @@ int personaAlta(EPersona lista[], int sizeArray)
 /** \brief Da de baja un persona
  *
  * \param EPersona lista[] el array se pasa como parametro.
- * \param int sizeArray tamaÃ±o de la array
+ * \param int sizeArray tamaño de la array
  * \param int dni DNI de la persona a dar de baja
  * \return int
  *
  */
-int personaBaja(EPersona lista[], int sizeArray, int dni)
+int personaBaja(EPersona lista[], int sizeArray, int id)
 {
     int retorno = -1;
     int indice;
-    indice = buscarPorDni(lista, dni, sizeArray);
+    indice = buscarPorID(lista, id, sizeArray);
     printf("%d", indice);
     if(indice >= 0)
     {
@@ -218,7 +218,7 @@ static int siguienteID()
     return id;
 }
 
-int graficoEdades(EPersona *lista, int QTY)
+void graficoEdades(EPersona *lista, int QTY)
 {
     int j,i;
     int grh0=0;
