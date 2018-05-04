@@ -9,7 +9,7 @@ static int siguienteID();
 /** \brief Inicializa la variable estado
  *
  * \param lista el array se pasa como parametro.
- * \param int sizeArray  tamaño de la array
+ * \param int sizeArray  tamaÃ±o de la array
  * \return int
  *
  */
@@ -79,7 +79,7 @@ int buscarPorDni(EPersona lista[], int dni, int sizeArray)
 /** \brief Da de alta una persona
  *
  * \param EPersona lista[] el array se pasa como parametro.
- * \param int sizeArray  tamaño de la array
+ * \param int sizeArray  tamaÃ±o de la array
  * \return int
  *
  */
@@ -127,7 +127,7 @@ int personaAlta(EPersona lista[], int sizeArray)
 /** \brief Da de baja un persona
  *
  * \param EPersona lista[] el array se pasa como parametro.
- * \param int sizeArray tamaño de la array
+ * \param int sizeArray tamaÃ±o de la array
  * \param int dni DNI de la persona a dar de baja
  * \return int
  *
@@ -244,9 +244,7 @@ int graficoEdades(EPersona *lista, int QTY)
                 }
         }
     }
-
     int grh[3] = {grh0, grh1, grh2};
-
     for (i = 0; i < 3; i++)
     {
         if (grh[i] > max)
@@ -254,18 +252,14 @@ int graficoEdades(EPersona *lista, int QTY)
             max = grh[i];
         }
     }
-    printf("%d\n", max);
     for(i = max; i > 0; i--)
     {
         for (j = 0; j < 3; j++)
         {
-            if(!lista[j].isEmpty)
-            {
-                if (grh[j] >= i)
-                    printf("    *");
-                else
-                    printf("     ");
-            }
+            if (grh[j] >= i)
+                printf("    *");
+            else
+                printf("     ");
         }
         putchar('\n');
     }
