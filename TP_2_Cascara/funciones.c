@@ -261,7 +261,7 @@ int graficoEdades(EPersona *lista, int QTY)
             else
                 printf("     ");
         }
-        putchar('\n');
+        printf("\n");
     }
     printf("  <19  19a35 >35\n");
 }
