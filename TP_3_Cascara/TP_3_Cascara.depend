@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1527534376 source:c:\users\nico\desktop\tp3\tp_3_cascara\funciones.c
+
+1527196444 source:c:\users\nico\desktop\tp3\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1527196444 c:\users\nico\desktop\tp3\tp_3_cascara\utn.h
+
+1457309098 source:c:\users\nico\desktop\tp3\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1527536307 c:\users\nico\desktop\tp3\tp_3_cascara\funciones.h
+	"movie.h"
+
+1527539964 c:\users\nico\desktop\tp3\tp_3_cascara\movie.h
+
