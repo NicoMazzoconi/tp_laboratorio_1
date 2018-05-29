@@ -154,7 +154,7 @@ int esAlfaNumerico(char str[])
    int i=0;
    while(str[i] != '\0')
    {
-       if((str[i] != ' ') && (str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9'))
+       if((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z') && (str[i] < '0' || str[i] > '9') && (str[i] == '-' || str[i] == ' '))
            return 0;
        i++;
    }
@@ -196,7 +196,7 @@ int getString(char mensaje[],char input[])
 {
     printf("%s",mensaje);
     clearStdin();
-    scanf ("%[^\n]s", input);
+    scanf ("%[^\n]", input);
     return 1;
 }
 
@@ -210,7 +210,7 @@ int getStringLetras(char mensaje[],char input[])
 {
     char aux[256];
     getString(mensaje,aux);
-    if(esSoloLetras(aux))
+    if(esAlfaNumerico(aux))
     {
         strcpy(input,aux);
         return 1;

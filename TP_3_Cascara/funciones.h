@@ -5,22 +5,31 @@
 /**
  *  Agrega una pelicula al archivo binario
  *  @param movie la estructura a ser agregada al archivo
- *  @return retorna 1 o 0 de acuerdo a si pudo agregar la pelicula o no
+ *  @return retorna -1 o 0 de acuerdo a si pudo agregar la pelicula o no
  */
-int agregarPelicula(Movie movie);
+int funciones_GenerarPaginaWeb(Movie **movie, int *qtyMovieActual, int qtyMovieTotal, char* path);
 
-/**
- *  Borra una pelicula del archivo binario
- *  @param movie la estructura a ser eliminada al archivo
- *  @return retorna 1 o 0 de acuerdo a si pudo eliminar la pelicula o no
+/** \brief Carga el array con los dato de un archivo
+ *
+ * \param movie Movie** el array a cargar
+ * \param qtyMovieActual int* la cantidad ocupada del array
+ * \param qtyMovieTotal int la cantidad total del array
+ * \param path char* direccion del archivo a cargar
+ * \return int -1 parametros invalidos, 0 todo correcto
+ *
  */
-int borrarPelicula(Movie movie);
+int funciones_movieLoad(Movie** movie, int* qtyMovieActual, int qtyMovieTotal, char* path);
 
-/**
- *  Genera un archivo html a partir de las peliculas cargadas en el archivo binario.
- *  @param lista la lista de peliculas a ser agregadas en el archivo.
- *  @param nombre el nombre para el archivo.
+/** \brief Crea un archivo con los datos del array
+ *
+ * \param movie Movie** array a guardar
+ * \param qtyMovieActual int* cantidad ocupada del array
+ * \param qtyMovieTotal int cantidad total del array
+ * \param path char* direecion donde se debe guardar el archivo
+ * \return int -1 parametros invalidos, 0 todo correcto
+ *
  */
-void generarPagina(Movie lista[], char nombre[]);
+int funciones_MovieDump(Movie** movie, int* qtyMovieActual, int qtyMovieTotal, char* path);
+
 
 #endif // FUNCIONES_H_INCLUDED

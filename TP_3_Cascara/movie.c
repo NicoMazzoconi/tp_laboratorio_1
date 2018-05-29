@@ -4,8 +4,8 @@
 #include <string.h>
 #include "utn.h"
 
-static int movie_setId(Movie *this);
-static int movie_getId(Movie *this, int* id);
+static int movie_setId(Movie *this, int id);
+
 
 Movie* movie_new()
 {
@@ -17,7 +17,7 @@ void movie_delete(Movie* this)
     free(this);
 }
 
-Movie movie_newAlta(char* titulo, char* genero,char* duracion,char* descripcion,int puntaje,char* link)
+Movie* movie_newAlta(char* titulo, char* genero,int duracion,char* descripcion,int puntaje,char* link)
 {
     Movie *auxArray = movie_new();
     movie_setTitulo(auxArray, titulo);
@@ -25,9 +25,9 @@ Movie movie_newAlta(char* titulo, char* genero,char* duracion,char* descripcion,
     movie_setDuracion(auxArray, duracion);
     movie_setGenero(auxArray, genero);
     movie_setLink(auxArray, link);
-    movie_setId(auxArray);
+    movie_setId(auxArray, -1);
     movie_setPuntaje(auxArray, puntaje);
-    return *auxArray;
+    return auxArray;
 }
 
 int movie_Alta(Movie **ArrayMovie, int *qtyMovieActual)
@@ -35,25 +35,31 @@ int movie_Alta(Movie **ArrayMovie, int *qtyMovieActual)
     int retorno = -1;
     char auxTitulo[100];
     char auxGenero[50];
-    char auxDuracion[20];
+    int auxDuracion;
     char auxDescripcion[200];
     int auxPuntaje;
     char auxLink[200];
-    if(ArrayMovie != NULL && *qtyMovieActual > 0)
+    if(ArrayMovie != NULL && *qtyMovieActual > -1)
     {
-        if(!getValidString("Titulo?", "Error", "Demasiado largo", auxTitulo, 100, 2))
+        retorno = -2;
+        if(getString("Titulo?", auxTitulo))
         {
-            if(!getValidString("Genero?", "Error", "Demasiado largo", auxGenero, 50, 2))
+            retorno = -2;
+            if(getString("Genero?", auxGenero))
             {
-                if(!getValidString("Descripcion?", "Error", "Demasiado largo", auxDescripcion, 200, 2))
+                retorno = -2;
+                if(getString("Descripcion?", auxDescripcion))
                 {
-                    if(!getValidString("Duracion?", "Error", "Demasiado largo", auxDuracion, 20, 2))
+                    retorno = -2;
+                    if(!getValidInt("Duracion?", "Error", &auxDuracion, 30, 250, 2))
                     {
-                        if(!getValidString("Link?", "Error", "Demasiado largo", auxLink, 200, 2))
+                        retorno = -2;
+                        if(!getValidUrl("Link?", "Error", "Demasiado largo", auxLink, 200, 2))
                         {
+                            retorno = -2;
                             if(!getValidInt("Puntaje?", "Error", &auxPuntaje, 1, 10, 2))
                             {
-                                *ArrayMovie[*qtyMovieActual] = movie_newAlta(auxTitulo, auxGenero, auxDuracion, auxDescripcion, auxPuntaje, auxLink);
+                                ArrayMovie[*qtyMovieActual] = movie_newAlta(auxTitulo, auxGenero, auxDuracion, auxDescripcion, auxPuntaje, auxLink);
                                 *qtyMovieActual = *qtyMovieActual + 1;
                                 retorno = 0;
                             }
@@ -69,26 +75,37 @@ int movie_Alta(Movie **ArrayMovie, int *qtyMovieActual)
 int movie_Baja(Movie **ArrayMovie, int *qtyMovieActual, int id)
 {
     int retorno = -1;
-    int i;
+    int i,j;
     int auxId;
-    if(ArrayMovie != NULL && *qtyMovieActual > 0 && id >= 0)
+    if(ArrayMovie != NULL && *qtyMovieActual > 0)
     {
-        for(i = 0; i < *qtyMovieActual; i++)
+        retorno = -2;
+        if(id >= 0)
         {
-            movie_getId(ArrayMovie[i], &auxId);
-            if(auxId == id)
+            for(i = 0; i < *qtyMovieActual; i++)
             {
-                movie_delete(ArrayMovie[i]);
-                retorno = 0;
-                break;
+                movie_getId(ArrayMovie[i], &auxId);
+                if(auxId == id)
+                {
+                    retorno = 0;
+                    break;
+                }
+                retorno = -3;
+            }
+            if(retorno == 0)
+            {
+                if(i < *qtyMovieActual)
+                {
+                    for(j = i; i < *qtyMovieActual; i++)
+                    {
+                        ArrayMovie[i] = ArrayMovie[i+1];
+                    }
+                }
+                movie_delete(ArrayMovie[*qtyMovieActual]);
+                *qtyMovieActual = *qtyMovieActual - 1;
             }
         }
     }
-    if(i < *qtyMovieActual)
-    {
-        ArrayMovie[i] = ArrayMovie[*qtyMovieActual];
-    }
-    *qtyMovieActual = *qtyMovieActual - 1;
     return retorno;
 }
 
@@ -132,22 +149,22 @@ int movie_getGenero(Movie *this, char* genero)
     }
     return retorno;
 }
-int movie_setDuracion(Movie *this, char* duracion)
+int movie_setDuracion(Movie *this, int duracion)
 {
     int retorno = -1;
-    if(this != NULL && duracion != NULL)
+    if(this != NULL)
     {
-        strcpy(this->duracion, duracion);
+        this->duracion = duracion;
         retorno = 0;
     }
     return retorno;
 }
-int movie_getDuracion(Movie *this, char* duracion)
+int movie_getDuracion(Movie *this, int* duracion)
 {
     int retorno = -1;
     if(this != NULL && duracion != NULL)
     {
-        strcpy(duracion, this->duracion);
+        *duracion = this->duracion;
         retorno = 0;
     }
     return retorno;
@@ -212,26 +229,123 @@ int movie_getPuntaje(Movie *this, int* puntaje)
     }
     return retorno;
 }
-static int movie_setId(Movie *this)
+
+static int movie_setId(Movie *this, int id)
 {
     int retorno = -1;
-    static int ultimoId = -1;
+    static int maximoId = -1;
     if(this != NULL)
     {
-        ultimoId++;
-        this->idMovie = ultimoId;
         retorno = 0;
+        if(id >= 0)
+        {
+            if(id > maximoId)
+                maximoId = id;
+            this->idMovie = id;
+        }
+        else
+        {
+            maximoId++;
+            this->idMovie = maximoId;
+        }
     }
     return retorno;
 }
 
-static int movie_getId(Movie *this, int* id)
+int movie_getId(Movie *this, int* id)
 {
     int retorno = -1;
     if(this != NULL && id != NULL)
     {
         *id = this->idMovie;
         retorno = 0;
+    }
+    return retorno;
+}
+
+int isValidUrl(char *url)
+{
+    int retorno = -1;
+    int size = strlen(url);
+    int i;
+    size = size - 4;
+    if(!strncmp(url, "www.", 4) || !strncmp(url, "http://", 7) || !strncmp(url, "https://", 8))
+    {
+        if(url[size] == '.' && url[size+1] == 'j' && url[size+2] == 'p' && url[size+3] == 'g')
+        {
+            retorno = 0;
+            for(i = 0; i < strlen(url); i++)
+            {
+                if(url[i] == '.' && url[i+1] == '.')
+                {
+                    retorno = -1;
+                    break;
+                }
+            }
+        }
+
+    }
+    return retorno;
+}
+
+int getValidUrl(char *requestMessage,char *errorMessage, char *errorMessageLenght,char *input, int maxLenght,int attemps)
+{
+    int i;
+    int retorno=-1;
+    char buffer[1024];
+
+    for(i=0;i<attemps;i++)
+    {
+        if (!getString(requestMessage,buffer) && !isValidUrl(buffer))
+        {
+            printf ("%s",errorMessage);
+            continue;
+        }
+        if(strlen(buffer) >= maxLenght)
+        {
+            printf ("%s",errorMessageLenght);
+            continue;
+
+        }
+        retorno=0;
+        strcpy(input,buffer);
+        break;
+    }
+    return retorno;
+}
+
+Movie* movie_newLoad(char* titulo, char* genero,int duracion,char* descripcion,int puntaje,char* link, int id)
+{
+    Movie* auxMovie = movie_new();
+    if(     !movie_setTitulo(auxMovie, titulo)
+       &&   !movie_setGenero(auxMovie, genero)
+       &&   !movie_setDuracion(auxMovie, duracion)
+       &&   !movie_setDescripcion(auxMovie, descripcion)
+       &&   !movie_setPuntaje(auxMovie, puntaje)
+       &&   !movie_setLink(auxMovie, link)
+       &&   !movie_setId(auxMovie, id))
+    {
+        return auxMovie;
+    }
+    movie_delete(auxMovie);
+    return NULL;
+}
+
+int movie_lista(Movie** movie, int qtyMovieActual)
+{
+    int retorno = -1;
+    int i;
+    char titulo[50];
+    int id;
+    if(movie != NULL && qtyMovieActual > 0)
+    {
+        retorno = 0;
+        for(i = 0; i < qtyMovieActual; i++)
+        {
+            movie_getTitulo(movie[i], titulo);
+            movie_getId(movie[i], &id);
+            printf("Titulo: %s, ID: %d\n", titulo, id);
+        }
     }
     return retorno;
 }

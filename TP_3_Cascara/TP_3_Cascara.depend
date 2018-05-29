@@ -1,7 +1,12 @@
 # depslib dependency file v1.0
-1527534376 source:c:\users\nico\desktop\tp3\tp_3_cascara\funciones.c
+1527616528 source:c:\users\nico\desktop\tp3\tp_3_cascara\funciones.c
+	"movie.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
 
-1527196444 source:c:\users\nico\desktop\tp3\tp_3_cascara\utn.c
+1527561242 source:c:\users\nico\desktop\tp3\tp_3_cascara\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
@@ -10,13 +15,22 @@
 
 1527196444 c:\users\nico\desktop\tp3\tp_3_cascara\utn.h
 
-1457309098 source:c:\users\nico\desktop\tp3\tp_3_cascara\main.c
+1527617673 source:c:\users\nico\desktop\tp3\tp_3_cascara\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
+	"movie.h"
+	"utn.h"
 
-1527536307 c:\users\nico\desktop\tp3\tp_3_cascara\funciones.h
+1527616515 c:\users\nico\desktop\tp3\tp_3_cascara\funciones.h
 	"movie.h"
 
-1527539964 c:\users\nico\desktop\tp3\tp_3_cascara\movie.h
+1527619669 c:\users\nico\desktop\tp3\tp_3_cascara\movie.h
+
+1527620530 source:c:\users\nico\desktop\tp3\tp_3_cascara\movie.c
+	"movie.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
 

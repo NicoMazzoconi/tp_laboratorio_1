@@ -1,21 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funciones.h"
-
-typedef struct{
-    char titulo[20];
-    char genero[20];
-    int duracion;
-    char descripcion[50];
-    int puntaje;
-    char linkImagen[50];
-}EMovie;
-
+#include "movie.h"
+#define QTY 50
+#include "utn.h"
 int main()
 {
+    Movie *arrayMovie[QTY];
     char seguir='s';
     int opcion=0;
-
+    int QTY_OCUPADO = 0;
+    int id;
+    int resultado;
+    funciones_movieLoad(arrayMovie, &QTY_OCUPADO, QTY, "Datos/datos.txt");
     while(seguir=='s')
     {
         printf("1- Agregar pelicula\n");
@@ -28,16 +25,66 @@ int main()
         switch(opcion)
         {
             case 1:
+                resultado = movie_Alta(arrayMovie, &QTY_OCUPADO);
+                if(resultado == -1)
+                {
+                    printf("Error en los parametros\n");
+                }
+                else
+                {
+                    if(resultado == -2)
+                    {
+                        printf("Error en los datos\n");
+                    }
+                    else
+                        printf("Creado Correctamente\n");
+                }
                 break;
             case 2:
+                movie_lista(arrayMovie, QTY_OCUPADO);
+                getValidInt("Id a borrar?", "Error", &id, 0, 50, 2);
+                resultado = movie_Baja(arrayMovie, &QTY_OCUPADO, id);
+                if(resultado == -1)
+                {
+                    printf("Parametros invalidos\n");
+                }
+                else
+                {
+                    if(resultado == -2)
+                    {
+                        printf("ID invalida\n");
+                    }
+                    else
+                    {
+                        if(resultado == -3)
+                        {
+                            printf("La ID no fue encontrada\n");
+                        }
+                        else
+                            printf("Borrado correctamente\n");
+                    }
+                }
                 break;
             case 3:
-               break;
+                resultado = funciones_GenerarPaginaWeb(arrayMovie, &QTY_OCUPADO, QTY, "Pagina Web/index.html");
+                if(resultado == -1)
+                {
+                    printf("Parametros invalidos\n");
+                }
+                else
+                {
+                    printf("Generada correctamente en la carpeta 'Pagina Web/index.html'");
+                }
+                break;
             case 4:
                 seguir = 'n';
                 break;
+            default :
+                printf("Opcion invalida\n");
+                break;
         }
     }
+    funciones_MovieDump(arrayMovie, &QTY_OCUPADO, QTY, "Datos/datos.txt");
 
     return 0;
 }
