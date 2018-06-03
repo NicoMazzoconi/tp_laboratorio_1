@@ -30,6 +30,18 @@ Movie* movie_newAlta(char* titulo, char* genero,int duracion,char* descripcion,i
     return auxArray;
 }
 
+Movie* movie_newMod(char* titulo, char* genero,int duracion,char* descripcion,int puntaje,char* link, int id)
+{
+    Movie *auxArray = movie_new();
+    movie_setTitulo(auxArray, titulo);
+    movie_setDescripcion(auxArray, descripcion);
+    movie_setDuracion(auxArray, duracion);
+    movie_setGenero(auxArray, genero);
+    movie_setLink(auxArray, link);
+    movie_setPuntaje(auxArray, puntaje);
+    movie_setId(auxArray, id);
+    return auxArray;
+}
 int movie_Alta(Movie **ArrayMovie, int *qtyMovieActual)
 {
     int retorno = -1;
@@ -75,7 +87,7 @@ int movie_Alta(Movie **ArrayMovie, int *qtyMovieActual)
 int movie_Baja(Movie **ArrayMovie, int *qtyMovieActual, int id)
 {
     int retorno = -1;
-    int i,j;
+    int i;
     int auxId;
     if(ArrayMovie != NULL && *qtyMovieActual > 0)
     {
@@ -96,7 +108,7 @@ int movie_Baja(Movie **ArrayMovie, int *qtyMovieActual, int id)
             {
                 if(i < *qtyMovieActual)
                 {
-                    for(j = i; i < *qtyMovieActual; i++)
+                    for(; i < *qtyMovieActual; i++)
                     {
                         ArrayMovie[i] = ArrayMovie[i+1];
                     }
@@ -345,6 +357,57 @@ int movie_lista(Movie** movie, int qtyMovieActual)
             movie_getTitulo(movie[i], titulo);
             movie_getId(movie[i], &id);
             printf("Titulo: %s, ID: %d\n", titulo, id);
+        }
+    }
+    return retorno;
+}
+
+int movie_modificar(Movie** movie, int qtyMovieActual, int id)
+{
+    int retorno = -1;
+    char auxTitulo[100];
+    char auxGenero[50];
+    int auxDuracion;
+    char auxDescripcion[200];
+    int auxPuntaje;
+    char auxLink[200];
+    int auxId;
+    if(movie != NULL && qtyMovieActual > 0 && id >= 0)
+    {
+        int i;
+        for(i = 0; i < qtyMovieActual; i++)
+        {
+            retorno = -2;
+            movie_getId(movie[i], &auxId);
+            if(auxId == id)
+            {
+                if(getString("Titulo?", auxTitulo))
+                {
+                    retorno = -3;
+                    if(getString("Genero?", auxGenero))
+                    {
+                        retorno = -3;
+                        if(getString("Descripcion?", auxDescripcion))
+                        {
+                            retorno = -3;
+                            if(!getValidInt("Duracion?", "Error", &auxDuracion, 30, 250, 2))
+                            {
+                                retorno = -3;
+                                if(!getValidUrl("Link?", "Error", "Demasiado largo", auxLink, 200, 2))
+                                {
+                                    retorno = -3;
+                                    if(!getValidInt("Puntaje?", "Error", &auxPuntaje, 1, 10, 2))
+                                    {
+                                        movie[i] = movie_newMod(auxTitulo, auxGenero, auxDuracion, auxDescripcion, auxPuntaje, auxLink, id);
+                                        retorno = 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+            }
         }
     }
     return retorno;

@@ -75,69 +75,41 @@ int funciones_GenerarPaginaWeb(Movie **movie, int *qtyMovieActual, int qtyMovieT
     return retorno;
 }
 
-int funciones_movieLoad(Movie** movie, int* qtyMovieActual, int qtyMovieTotal, char* path)
+int funciones_movieLoad(Movie** movie, int* qtyMovieActual, char* path)
 {
     int retorno = -1;
-    ///////////AUX////////////
-    char bTitulo[100];
-    char bGenero[50];
-    char bDuracion[20];
-    char bDescripcion[200];
-    char bPuntaje[20];
-    char bLink[200];
-    char bIdMovie[10];
-    ///////////int////////////
-    int duracion;
-    int puntaje;
-    int idMovie;
-    //////////////////////////////
     FILE* pFile;
-    pFile = fopen(path,"r");
-    if(pFile != NULL && movie != NULL && qtyMovieTotal > 0 && *qtyMovieActual >= 0 &&  qtyMovieTotal > *qtyMovieActual)
+    Movie* auxMovie = movie_new();
+    if(movie != NULL && path != NULL)
     {
-        retorno = 0;
-        while(!feof(pFile))
+        pFile = fopen(path, "rb");
+        if(pFile != NULL)
         {
-            fscanf(pFile,"%[^@]@%[^@]@%[^@]@%[^@]@%[^@]@%[^@]@%[^\n]\n",bTitulo,bGenero,bDuracion,bDescripcion,bPuntaje,bLink,bIdMovie);
-            duracion = atoi(bDuracion);
-            puntaje = atoi(bPuntaje);
-            idMovie = atoi(bIdMovie);
-            movie[*qtyMovieActual] = movie_newLoad(bTitulo, bGenero, duracion, bDescripcion, puntaje, bLink, idMovie);
-            (*qtyMovieActual)++;
+            while(fread(auxMovie, sizeof(Movie), 1, pFile) == 1)
+            {
+                movie[*qtyMovieActual] = movie_newLoad(auxMovie->titulo, auxMovie->genero, auxMovie->duracion, auxMovie->descripcion, auxMovie->puntaje, auxMovie->link, auxMovie->idMovie);
+                printf("%s\n", movie[*qtyMovieActual]->titulo);
+                (*qtyMovieActual)++;
+            }
+            fclose(pFile);
+            retorno = 0;
         }
     }
-    fclose(pFile);
     return retorno;
 }
 
-int funciones_MovieDump(Movie** movie, int* qtyMovieActual, int qtyMovieTotal, char* path)
+int funciones_MovieDump(Movie** movie, int qtyMovieActual, char* path)
 {
-    int retorno = -1;
+    FILE *f;
     int i;
-    char titulo[100];
-    char genero[50];
-    int duracion;
-    char descripcion[200];
-    int puntaje;
-    char link[200];
-    int idMovie;
-    FILE* pFile;
-    pFile = fopen(path,"w");
-    if(pFile != NULL && movie != NULL && qtyMovieTotal > 0 && *qtyMovieActual >= 0 &&  qtyMovieTotal > *qtyMovieActual)
+    int retorno = -1;
+    f = fopen(path, "wb");
+    if(f!=NULL)
     {
         retorno = 0;
-        for(i=0;i<*qtyMovieActual;i++)
-        {
-            movie_getTitulo(movie[i],titulo);
-            movie_getGenero(movie[i],genero);
-            movie_getId(movie[i],&idMovie);
-            movie_getDescripcion(movie[i], descripcion);
-            movie_getDuracion(movie[i], &duracion);
-            movie_getLink(movie[i], link);
-            movie_getPuntaje(movie[i], &puntaje);
-            fprintf(pFile,"%s@%s@%d@%s@%d@%s@%d\n",titulo,genero,duracion,descripcion,puntaje,link,idMovie);
-        }
+        for(i=0;i<qtyMovieActual;i++)
+            fwrite(movie[i],sizeof(Movie), 1,f);
     }
-    fclose(pFile);
+    fclose(f);
     return retorno;
 }

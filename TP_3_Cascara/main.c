@@ -12,13 +12,14 @@ int main()
     int QTY_OCUPADO = 0;
     int id;
     int resultado;
-    funciones_movieLoad(arrayMovie, &QTY_OCUPADO, QTY, "Datos/datos.txt");
+    funciones_movieLoad(arrayMovie, &QTY_OCUPADO, "Datos/datos2.bin");
     while(seguir=='s')
     {
         printf("1- Agregar pelicula\n");
         printf("2- Borrar pelicula\n");
-        printf("3- Generar pagina web\n");
-        printf("4- Salir\n");
+        printf("3- Modificar pelicula\n");
+        printf("4- Generar pagina web\n");
+        printf("5- Salir\n");
 
         scanf("%d",&opcion);
 
@@ -42,7 +43,7 @@ int main()
                 break;
             case 2:
                 movie_lista(arrayMovie, QTY_OCUPADO);
-                getValidInt("Id a borrar?", "Error", &id, 0, 50, 2);
+                getValidInt("Id a borrar?", "Error", &id, 0, 1000, 2);
                 resultado = movie_Baja(arrayMovie, &QTY_OCUPADO, id);
                 if(resultado == -1)
                 {
@@ -66,6 +67,31 @@ int main()
                 }
                 break;
             case 3:
+                movie_lista(arrayMovie, QTY_OCUPADO);
+                getValidInt("Id a modificar", "Error", &id, 0, 1000, 2);
+                resultado = movie_modificar(arrayMovie, QTY_OCUPADO, id);
+                if(resultado == -1)
+                {
+                    printf("Parametros invalidos\n");
+                }
+                else
+                {
+                    if(resultado == -2)
+                    {
+                        printf("ID invalida\n");
+                    }
+                    else
+                    {
+                        if(resultado == -3)
+                        {
+                            printf("La ID no fue encontrada\n");
+                        }
+                        else
+                            printf("Modificado correctamente\n");
+                    }
+                }
+                break;
+            case 4:
                 resultado = funciones_GenerarPaginaWeb(arrayMovie, &QTY_OCUPADO, QTY, "Pagina Web/index.html");
                 if(resultado == -1)
                 {
@@ -76,7 +102,7 @@ int main()
                     printf("Generada correctamente en la carpeta 'Pagina Web/index.html'");
                 }
                 break;
-            case 4:
+            case 5:
                 seguir = 'n';
                 break;
             default :
@@ -84,7 +110,7 @@ int main()
                 break;
         }
     }
-    funciones_MovieDump(arrayMovie, &QTY_OCUPADO, QTY, "Datos/datos.txt");
+    funciones_MovieDump(arrayMovie, QTY_OCUPADO, "Datos/datos2.bin");
 
     return 0;
 }

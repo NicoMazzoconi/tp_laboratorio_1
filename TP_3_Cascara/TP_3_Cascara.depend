@@ -34,3 +34,38 @@
 	<string.h>
 	"utn.h"
 
+1528068887 source:c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\funciones.c
+	"movie.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+
+1528065667 c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\movie.h
+
+1527606268 c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\utn.h
+
+1527606268 source:c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1528068914 source:c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+	"movie.h"
+	"utn.h"
+
+1528068967 c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\funciones.h
+	"movie.h"
+
+1527891358 source:c:\users\nico\desktop\tp_laboratorio_1-master\tp_3_cascara\movie.c
+	"movie.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utn.h"
+

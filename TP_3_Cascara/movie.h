@@ -4,10 +4,10 @@ typedef struct{
     char titulo[100];
     char genero[50];
     int duracion;
+    int idMovie;
     char descripcion[200];
     int puntaje;
     char link[200];
-    int idMovie;
 }Movie;
 #endif // MOVIE_H_INCLUDED
 
@@ -218,3 +218,25 @@ int getValidUrl(char *requestMessage,char *errorMessage, char *errorMessageLengh
  *
  */
 int movie_lista(Movie** movie, int qtyMovieActual);
+
+/** \brief Modifica un pelicula del array
+ *
+ * \param movie Movie** el array de las peliuclas
+ * \param id int el id a modificar
+ * \return int -1 parametros invalidos, -2 si no se encontro el id, -3 datos ingresados para modificar invalidos, 0 todo bien
+ *
+ */
+int movie_modificar(Movie** movie, int qtyMovieActual, int id);
+
+/** \brief Carga el array con los datos ingresados se usa para modificar
+ *
+ * \param titulo char* el titulo a cargar
+ * \param genero char* el genero a cargar
+ * \param duracion int la duracion a cargar
+ * \param descripcion char* la descripcion a cargar
+ * \param puntaje int el puntaje a cargar
+ * \param link char* el link a cargar
+ * \return Movie* devuelve el array cargado
+ *
+ */
+Movie* movie_newMod(char* titulo, char* genero,int duracion,char* descripcion,int puntaje,char* link, int id);
