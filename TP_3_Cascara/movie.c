@@ -100,6 +100,7 @@ int movie_Baja(Movie **ArrayMovie, int *qtyMovieActual, int id)
                 if(auxId == id)
                 {
                     retorno = 0;
+                    movie_delete(ArrayMovie[i]);
                     break;
                 }
                 retorno = -3;
@@ -113,7 +114,6 @@ int movie_Baja(Movie **ArrayMovie, int *qtyMovieActual, int id)
                         ArrayMovie[i] = ArrayMovie[i+1];
                     }
                 }
-                movie_delete(ArrayMovie[*qtyMovieActual]);
                 *qtyMovieActual = *qtyMovieActual - 1;
             }
         }
