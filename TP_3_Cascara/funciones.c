@@ -88,7 +88,6 @@ int funciones_movieLoad(Movie** movie, int* qtyMovieActual, char* path)
             while(fread(auxMovie, sizeof(Movie), 1, pFile) == 1)
             {
                 movie[*qtyMovieActual] = movie_newLoad(auxMovie->titulo, auxMovie->genero, auxMovie->duracion, auxMovie->descripcion, auxMovie->puntaje, auxMovie->link, auxMovie->idMovie);
-                printf("%s\n", movie[*qtyMovieActual]->titulo);
                 (*qtyMovieActual)++;
             }
             fclose(pFile);
