@@ -392,23 +392,29 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
  */
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
-    void* auxArray;
     int returnAux = -1;
-    int i,j;
-    if(this != NULL && *pFunc != NULL)
+    if(this!=NULL && pFunc!=NULL && (order==1||order==0) && this->size > 1)
     {
-        for(i = 1; i < this->size; i++)
+        returnAux=0;
+        int i;
+        int flagSwap;
+        void* auxiliarEstructura;
+        do
         {
-            auxArray = this->pElements[i];
-            j = i;
-            while(j > 0 && ((pFunc(&this->pElements[i], &this->pElements[i+1]) == order) || (pFunc(&this->pElements[i], &this->pElements[i+1]) != order)))
+            flagSwap = 0;
+            for(i=0; i<this->size-1; i++)
             {
-                this->pElements[j] = this->pElements[j-1];
-                j--;
-                returnAux = 0;
+                if((pFunc(this->pElements[i],this->pElements[i+1]) > 0 && order) || (pFunc(this->pElements[i],this->pElements[i+1]) < 0 && !order))
+                {
+                    auxiliarEstructura = this->pElements[i];
+                    this->pElements[i] = this->pElements[i+1];
+                    this->pElements[i+1] = auxiliarEstructura;
+                    flagSwap = 1;
+                }
+                returnAux=0;
             }
-            this->pElements[j] = auxArray;
         }
+        while(flagSwap);
     }
     return returnAux;
 }
