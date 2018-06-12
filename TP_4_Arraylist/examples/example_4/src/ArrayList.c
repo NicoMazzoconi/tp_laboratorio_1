@@ -393,18 +393,18 @@ int al_containsAll(ArrayList* this,ArrayList* this2)
 int al_sort(ArrayList* this, int (*pFunc)(void* ,void*), int order)
 {
     int returnAux = -1;
-    if(this!=NULL && pFunc!=NULL && (order==1||order==0) && this->size > 1)
+    if(this!=NULL && pFunc!=NULL && (order == 1 || order == 0) && this->size > 1)
     {
-        returnAux=0;
+        returnAux = 0;
         int i;
         int flagSwap;
         void* auxiliarEstructura;
         do
         {
             flagSwap = 0;
-            for(i=0; i<this->size-1; i++)
+            for(i = 0; i < this->size - 1; i++)
             {
-                if((pFunc(this->pElements[i],this->pElements[i+1]) > 0 && order) || (pFunc(this->pElements[i],this->pElements[i+1]) < 0 && !order))
+                if((pFunc(this->pElements[i], this->pElements[i+1]) > 0 && order) || (pFunc(this->pElements[i], this->pElements[i+1]) < 0 && !order))
                 {
                     auxiliarEstructura = this->pElements[i];
                     this->pElements[i] = this->pElements[i+1];
