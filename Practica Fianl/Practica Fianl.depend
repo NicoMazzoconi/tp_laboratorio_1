@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1529445532 source:d:\practica final\practica fianl\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529444857 d:\practica final\practica fianl\arraylist.h
+
+1529456994 source:d:\practica final\practica fianl\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+	"funciones.h"
+	"parse.h"
+
+1529449464 d:\practica final\practica fianl\ventas.h
+	"ArrayList.h"
+
+1529450047 d:\practica final\practica fianl\clientes.h
+	"ArrayList.h"
+
+1529444857 d:\practica final\practica fianl\utn.h
+
+1529444857 source:d:\practica final\practica fianl\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1529449464 source:d:\practica final\practica fianl\ventas.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529450047 source:d:\practica final\practica fianl\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529451604 source:d:\practica final\practica fianl\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529451205 d:\practica final\practica fianl\funciones.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529455155 d:\practica final\practica fianl\parse.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529457035 source:d:\practica final\practica fianl\parse.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
