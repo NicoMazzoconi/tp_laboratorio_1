@@ -72,7 +72,7 @@ void parse_leerClientes(ArrayList* pArrayClientes, char* path)
         if(pFile != NULL)
             while(!feof(pFile))
             {
-                fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", buffIdCliente, buffNombre, buffNombre, buffDni);
+                fscanf(pFile, "%[^,],%[^,],%[^,],%[^\n]\n", buffIdCliente, buffNombre, buffApellido, buffDni);
                 idCliente = atoi(buffIdCliente);
                 auxCliente = clientes_newParametros(buffNombre, buffApellido, buffDni, idCliente);
                 al_add(pArrayClientes, auxCliente);
