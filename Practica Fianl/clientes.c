@@ -91,7 +91,7 @@ int clientes_getDni(Clientes* this, char* dni)
 int clientes_setIdCliente(Clientes* this, int idCliente)
 {
     int retorno = -1;
-    int maximo = -1;
+    static int maximo = -1;
     if(this != NULL)
     {
         if(idCliente >= 0)
