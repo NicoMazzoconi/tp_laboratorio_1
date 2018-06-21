@@ -108,7 +108,7 @@ int ventas_getCantidad(Ventas* this, int* cantidad)
 int ventas_setIdVenta(Ventas* this, int idVenta)
 {
     int retorno = -1;
-    int maximo = -1;
+    static int maximo = -1;
     if(this != NULL)
     {
         retorno = 0;
