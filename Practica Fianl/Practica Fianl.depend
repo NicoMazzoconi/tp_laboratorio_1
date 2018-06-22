@@ -77,3 +77,159 @@
 	"utn.h"
 	"ArrayList.h"
 
+1529538468 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\arraylist.h
+
+1529538975 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\ventas.h
+	"ArrayList.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\clientes.h
+	"ArrayList.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\utn.h
+
+1529538468 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+	"funciones.h"
+	"parse.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\funciones.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529538468 c:\users\nico\desktop\tp_laboratorio_1\practica fianl\parse.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529538764 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\parse.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529538468 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1529538561 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529538883 source:c:\users\nico\desktop\tp_laboratorio_1\practica fianl\ventas.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529622576 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529622576 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\arraylist.h
+
+1529622635 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\clientes.c
+	<stdio.h>
+	<stdlib.h>
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529622577 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\clientes.h
+	"ArrayList.h"
+
+1529622577 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\utn.h
+
+1529622917 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529622754 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\ventas.h
+	"ArrayList.h"
+
+1529622907 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+	"funciones.h"
+	"parse.h"
+
+1529622892 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\funciones.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529622577 d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\parse.h
+	"ventas.h"
+	"clientes.h"
+	"ArrayList.h"
+
+1529622577 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\parse.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	"clientes.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+
+1529622577 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1529628289 source:d:\nicolasmazzoconi\tp_laboratorio_1\practica fianl\ventas.c
+	<stdio.h>
+	<stdlib.h>
+	"ventas.h"
+	<string.h>
+	"utn.h"
+	"ArrayList.h"
+

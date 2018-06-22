@@ -48,7 +48,7 @@ int ventas_getPrecio(Ventas* this, float* precio)
 int ventas_setCodProducto(Ventas* this, int codProducto)
 {
     int retorno = -1;
-    if(this != NULL && codProducto > 0)
+    if(this != NULL && codProducto >= 0)
     {
         this->codProducto = codProducto;
         retorno = 0;
@@ -68,7 +68,7 @@ int ventas_getCodProducto(Ventas* this, int* codProducto)
 int ventas_setIdCliente(Ventas* this, int idCliente)
 {
     int retorno = -1;
-    if(this != NULL && idCliente > 0)
+    if(this != NULL && idCliente >= 0)
     {
         this->idCliente = idCliente;
         retorno = 0;
@@ -142,7 +142,7 @@ int ventas_alta(ArrayList* pArrayVentas)
     float precio;
     int codProducto;
     int idCliente, cantidad;
-    Ventas* auxVenta = ventas_new();
+    Ventas* auxVenta;// = ventas_new();
     if(pArrayVentas != NULL)
     {
         retorno = -2;
@@ -152,8 +152,12 @@ int ventas_alta(ArrayList* pArrayVentas)
                     if(!getValidInt("Cantidad?", "Cantidad invalida", &cantidad, 1, 100, 2))
                     {
                         auxVenta = ventas_newParametros(precio, codProducto, idCliente, cantidad, -1);
-                        al_add(pArrayVentas, auxVenta);
-                        retorno = 0;
+                        if(auxVenta != NULL)
+                        {
+                            al_add(pArrayVentas, auxVenta);
+                            printf("\n%d--ID %d\n", al_len(pArrayVentas), auxVenta->idVenta);
+                            retorno = 0;
+                        }
                     }
     }
     return retorno;
@@ -180,4 +184,18 @@ int ventas_baja(ArrayList* pArrayVentas, int id)
         }
     }
     return retorno;
+}
+
+void ventas_print(Ventas* this)
+{
+    if(this != NULL)
+    {
+        int id;
+        ventas_getIdVenta(this, &id);
+        printf("%d\n", id);
+   }
+    else
+   {
+        printf("Error\n");
+    }
 }

@@ -50,7 +50,8 @@ int main()
             parse_ventas(pArrayVentas, "datosVentas.txt");
             break;
         case 7:
-            funciones_listarVentas(pArrayVentas, pArrayClientes, -1);
+            funciones(pArrayVentas);
+           // funciones_listarVentas(pArrayVentas, pArrayClientes, -1);
             break;
         case 8:
             cod = getInt("Codigo del producto?\n");

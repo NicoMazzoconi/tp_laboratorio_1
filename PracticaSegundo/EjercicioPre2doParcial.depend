@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1529625734 source:d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Parser.h"
+
+1529619535 d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\empleado.h
+	"ArrayList.h"
+
+1529625786 d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\arraylist.h
+
+1529617331 d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\parser.h
+	"ArrayList.h"
+
+1529623324 source:d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Parser.h"
+
+1529625786 source:d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1529625811 source:d:\nicolasmazzoconi\tp_laboratorio_1\practicasegundo\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	"Empleado.h"
+	"ArrayList.h"
+	"Parser.h"
+	"string.h"
+

@@ -12,7 +12,6 @@ int funciones_indexClienteId(ArrayList* pArrayClientes, int id)
     Clientes* auxCliente = clientes_new();
     ArrayList* auxArrayClientes = al_newArrayList();
     auxArrayClientes = al_clone(pArrayClientes);
-    al_sort(auxArrayClientes, clientes_compareLastName, 1);
     for(i = 0; i < al_len(auxArrayClientes); i++)
     {
         auxCliente = al_get(auxArrayClientes, i);
@@ -74,7 +73,7 @@ void funciones_listarVentas(ArrayList* pArrayVentas, ArrayList* pArrayClientes, 
                 ventas_getCantidad(auxVentas, &cantidad);
                 ventas_getPrecio(auxVentas, &precio);
                 monto = precio * cantidad;
-                if(cod < 0 || cod == codProducto)
+                if(cod == -1 || cod == codProducto)
                     printf("%d\t%s\t%s\t%s\t%d\t%.2f\n", auxIdVentas, nombre, apellido, dni, codProducto, monto);
             }
         }
@@ -153,5 +152,23 @@ void funciones_clientesMontos(ArrayList* pArrayClientes, ArrayList* pArrayVentas
             }
             printf("%d\t%s\t%s\t%s\t%d\t%.2f\n", idCliente, nombre, apellido, dni, ventas, monto);
         }
+    }
+}
+
+void funciones(ArrayList* pArrayVentas)
+{
+    if(pArrayVentas != NULL)
+    {
+        int i;
+        Ventas* auxV = ventas_new();
+        for(i = 0; i < al_len(pArrayVentas); i++)
+        {
+            auxV = al_get(pArrayVentas, i);
+            ventas_print(auxV);
+        }
+    }
+    else
+    {
+        printf("Error con el arraylist");
     }
 }

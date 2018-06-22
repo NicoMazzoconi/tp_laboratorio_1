@@ -25,4 +25,5 @@ int ventas_setIdVenta(Ventas* this, int idVenta);
 int ventas_getIdVenta(Ventas* this, int* idVenta);
 int ventas_alta(ArrayList* pArrayVentas);
 int ventas_baja(ArrayList* pArrayVentas, int id);
+void ventas_print(Ventas* this);
 

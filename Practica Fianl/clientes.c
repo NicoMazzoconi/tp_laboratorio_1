@@ -125,7 +125,7 @@ int clientes_alta(ArrayList* pArrayClientes)
     char apellido[64];
     char dni[20];
     int retorno = -1;
-    Clientes* auxCliente = clientes_new();
+    Clientes* auxCliente;// = clientes_new();
     if(pArrayClientes != NULL)
     {
         retorno = -2;
