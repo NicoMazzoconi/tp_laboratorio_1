@@ -141,15 +141,15 @@
 	"ArrayList.h"
 	<ctype.h>
 
-1529617021 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\arraylist.c
+1530220850 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\arraylist.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"ArrayList.h"
 
-1528926784 d:\nicolasmazzoconi\tp_laboratorio_1\builder\arraylist.h
+1530220850 d:\nicolasmazzoconi\tp_laboratorio_1\builder\arraylist.h
 
-1529621464 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\generador.c
+1530220850 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\generador.c
 	"generador.h"
 	<stdio.h>
 	<stdlib.h>
@@ -158,12 +158,12 @@
 	"ArrayList.h"
 	<ctype.h>
 
-1528926784 d:\nicolasmazzoconi\tp_laboratorio_1\builder\generador.h
+1530220850 d:\nicolasmazzoconi\tp_laboratorio_1\builder\generador.h
 	"ArrayList.h"
 
-1528926784 d:\nicolasmazzoconi\tp_laboratorio_1\builder\utn.h
+1530220850 d:\nicolasmazzoconi\tp_laboratorio_1\builder\utn.h
 
-1528935160 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\main.c
+1530220850 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -171,10 +171,18 @@
 	"utn.h"
 	"ArrayList.h"
 
-1528926784 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\utn.c
+1530220850 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\utn.c
 	<stdio.h>
 	<stdlib.h>
 	<time.h>
 	<string.h>
 	"utn.h"
+
+1530220850 source:d:\nicolasmazzoconi\tp_laboratorio_1\builder\producto.c
+	"producto.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1530220850 d:\nicolasmazzoconi\tp_laboratorio_1\builder\producto.h
 
