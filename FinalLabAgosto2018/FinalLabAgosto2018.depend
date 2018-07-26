@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1530227019 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\arraylist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1530227019 d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\arraylist.h
+
+1532645562 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utn.h"
+	"ArrayList.h"
+	<string.h>
+	"Mercaderia.h"
+	"parse.h"
+
+1530227019 d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\utn.h
+
+1532646354 d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\mercaderia.h
+
+1532645887 d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\parse.h
+	"ArrayList.h"
+
+1532647183 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\mercaderia.c
+	"Mercaderia.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+
+1530227019 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1532645607 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\parse.c
+	"parse.h"
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"Mercaderia.h"
+	<string.h>
+
+1532645401 source:d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\funciones.c
+	"Mercaderia.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
+	"funciones.h"
+
+1532645789 d:\nicolasmazzoconi\final laboratorio agosto 2018\finallabagosto2018\funciones.h
+	"ArrayList.h"
+
